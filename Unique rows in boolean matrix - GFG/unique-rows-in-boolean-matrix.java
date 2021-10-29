@@ -35,20 +35,6 @@ class TrieNode
 }
 class GfG
 {
-    static void dfs(TrieNode root,ArrayList<Integer>res,ArrayList<ArrayList<Integer>>ans)
-    {
-        if(root==null)
-            return;
-        if(root.isPresent)
-            ans.add(new ArrayList<Integer>(res));
-        for(int i=1;i>=0;i--)
-        {
-            res.add(i);
-            dfs(root.arr[i],res,ans);
-            res.remove(res.size()-1);
-        }
-        
-    }
     public static ArrayList<ArrayList<Integer>> uniqueRow(int a[][],int r, int c)
     {
         //add code here.
