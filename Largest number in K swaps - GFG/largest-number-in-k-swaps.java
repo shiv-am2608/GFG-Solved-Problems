@@ -24,14 +24,14 @@ class Solution
 {
     //Function to find the largest number after k swaps.
     static String max;
-    public static void permute(String str,int k)
+    public static void permute(String str,int k,int start)
     {
         if(max.compareTo(str)<0)
             max=str;
         if(k==0)
             return;
         char ch[]=str.toCharArray();
-        for(int i=0;i<str.length();i++)
+        for(int i=start;i<str.length();i++)
         {
             int index=i;
             for(int j=i+1;j<str.length();j++)
@@ -41,20 +41,19 @@ class Solution
                     char temp=ch[j];
                     ch[j]=ch[index];
                     ch[index]=temp;
-                    permute(String.valueOf(ch),k-1);
+                    permute(String.valueOf(ch),k-1,start+1);
                     temp=ch[j];
                     ch[j]=ch[index];
                     ch[index]=temp;
                 }
             }
         }
-        return ;
     }
     public static String findMaximumNum(String str, int k)
         {
             //code here.
             max="-1";
-            permute(str,k);
+            permute(str,k,0);
             return max;
         }
 }
