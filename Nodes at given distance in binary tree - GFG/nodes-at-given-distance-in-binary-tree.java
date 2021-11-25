@@ -107,17 +107,13 @@ class GFG
 
 class Solution
 {
-    static Node tar=null;
     public static boolean findPath(Node root,int target,ArrayList<Node>path)
     {
         if(root==null)
             return false;
         path.add(root);
         if(root.data==target)
-        {
-            tar=root;
             return true;
-        }
         if(findPath(root.left,target,path) || findPath(root.right,target,path))
             return true;
         path.remove(path.size()-1);
