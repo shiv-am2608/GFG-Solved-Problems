@@ -47,24 +47,17 @@ class Solution
     static int findPlatform(int arr[], int dep[], int n)
     {
         // add your code here
-        if(n==0)
-            return 0;
         Arrays.sort(arr);
         Arrays.sort(dep);
+        int count=1,ans=1;
         int i=1,j=0;
-        int ans=1;
         while(i<arr.length)
         {
-            if(arr[i]>dep[j])
-            {
-                i++;
+            while(j<i && dep[j]<arr[i])
                 j++;
-            }
-            else
-            {
-                ans++;
-                i++;
-            }
+            count=i-j+1;
+            ans=Math.max(ans,count);
+            i++;
         }
         return ans;
     }
