@@ -24,7 +24,7 @@ class SortedStack{
 
 /*Complete the function below*/
 class GfG{
-    public void insert(Stack<Integer>st,int temp)
+	public void insert(Stack<Integer>st,int temp)
     {
         if(st.isEmpty() || st.peek()<=temp)
         {
